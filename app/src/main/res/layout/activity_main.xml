@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- ActivityMain.xml.
+- This is a template layout for our MainActivity.
+- Root layout tag is CoordinatorLayout from design support library.
+- CordinatorLayout is viewgroup that is a superpowered on framelayout.
+- CoordinatorLayout is intended for two primary use cases:
+As a top-level application decor or chrome layout
+As a container for a specific interaction with one or more child views
+- Inside our CordinatorLayout we add : AppBarLayout,FloatingActionButton and include content_main.xml.
+- AppBarLayout is vertical LinearLayout that implements scrolling features of material design concept.
+- It should be a direct child of CordinatorLayout, otherwise alot of features won't work.
+- Inside the AppBarLayout we add our toolbar,which we give a blue color.
+- Next we add our Material SearchBar which will give us the searchbar.
+- We can specify attributes like style and hint.
+- We will add our widgets in our content_main.xml, not here as this is a template layout.
+- Finally we have a FloatingActionButton, a class that derives from android.support.design.widget.VisibilityAwareImageButton.
+Its the round button you see in our user interface.
+-->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.tutorials.hp.searchbarlistview.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <com.mancj.materialsearchbar.MaterialSearchBar
+            app:mt_speechMode="true"
+            app:mt_hint="Custom hint"
+            app:theme="@style/AppTheme.PopupOverlay"
+            app:mt_maxSuggestionsCount="5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchBar" />
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+</android.support.design.widget.CoordinatorLayout>
